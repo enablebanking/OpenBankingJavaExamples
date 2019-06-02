@@ -1,0 +1,2062 @@
+class Connector {
+    name: SPankki
+    countries: [FI]
+    scopes: [aisp, pisp]
+}
+
+class Auth {
+    url: https://s-pankki-sandbox.crosskey.io/oidc/auth?response_type=code%20id_token%20token&client_id=QuaLy4hsXsoBvYCPOsapwv5dV9dkfw_qeWImvqZYh68&redirect_uri=https%3A%2F%2Fenablebanking.com&scope=accounts%20payments%20openid&state=test&nonce=18a8ba71-8019-4518-86be-49c735426272&request=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7ImVzc2VudGlhbCI6dHJ1ZSwidmFsdWVzIjpbInVybjpvcGVuYmFua2luZzpwc2QyOnNjYSIsInVybjpvcGVuYmFua2luZzpwc2QyOmNhIl19LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsiZXNzZW50aWFsIjp0cnVlLCJ2YWx1ZSI6InVybjpjcm9zc2tleTphY2NvdW50Ojc5OTgyZjEwLWU4MTctNDUwMS04ODM2LTFkMDUwNTJhMWIzYyJ9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7ImVzc2VudGlhbCI6dHJ1ZSwidmFsdWUiOiJ1cm46Y3Jvc3NrZXk6YWNjb3VudDo3OTk4MmYxMC1lODE3LTQ1MDEtODgzNi0xZDA1MDUyYTFiM2MifX19fQ.LCbRDx8sSOQIP-vHg0WVvJxunXrHrjGhqbECpLLat19XBnyp-C3nu5FP7uQoVALRVCDgZ1WKNziOuHUfBlOFU80rtPztiPjY9DgTY-JEmxuxfEW1dkio_Y63FMvRz-prpCj7N38ho95c9Vt_KFNWtMKy0EyT0-Lq8ybyoH6JC5kpX9HBOVb1tV_mzkzm2q-fOYAB3dDXUcXT3wMtY9VkmIgjM_aPSLaTJ9H6MwKmTpqIrTE5LIGF8tDfAAs-61xoagnrDDiKez715jp_Mv1IQL40_DYHYMunn6NbpT46DmTp4QjCFrgdirXZbGYgA4KQ5XLnhYduzHClm3zbw1xqew
+}
+
+class Token {
+    accessToken: u6IFN6nKT15GpmA08ep-MBkSkSXIioh7gXkONlL~hlWOmHVI-.XNW05EGeYpWMhx5F9mYVvuKlRcfYUL53KuBRWqv_E~plhFCKTU-dySbKSKzE.drRZaTYXrb_K3dNHlR3B23WA1VGM~VAfzWTIqzOJxCH-FZYQgJaM4WFnEmhy8QurFfZb6miFsTI496UbQrgTdAkMde3UVL34~eeysOYaMK6d3-bcYAnz0sBYf4E-FlM779uumi-dh86jMT1x2
+    tokenType: Bearer
+    expiresIn: 30
+    refreshToken: v8yoi7Niu6i7RW5BXNDL2GaDZuxeDOeoAZgsmTlJjM0
+    scope: accounts payments openid
+}
+
+class HalAccounts {
+    connectedPsu: null
+    accounts: [class AccountResource {
+        resourceId: d1fad11a-4571-11e9-9d38-1f6962efee5d
+        bicFi: null
+        accountId: class AccountIdentification {
+            iban: FI3839390001384700
+            other: null
+        }
+        name: Customer A
+        details: null
+        linkedAccount: null
+        usage: PRIV
+        cashAccountType: CACC
+        product: null
+        currency: EUR
+        balances: null
+        psuStatus: null
+        links: class AccountLinks {
+            balances: null
+            transactions: null
+        }
+    }, class AccountResource {
+        resourceId: d1fdee72-4571-11e9-9d38-03ba485e880b
+        bicFi: null
+        accountId: class AccountIdentification {
+            iban: FI8439390001387752
+            other: null
+        }
+        name: Customer A
+        details: null
+        linkedAccount: null
+        usage: PRIV
+        cashAccountType: CACC
+        product: null
+        currency: EUR
+        balances: null
+        psuStatus: null
+        links: class AccountLinks {
+            balances: null
+            transactions: null
+        }
+    }, class AccountResource {
+        resourceId: d1fe92b4-4571-11e9-9d38-537dc9438d1e
+        bicFi: null
+        accountId: class AccountIdentification {
+            iban: null
+            other: class GenericIdentification {
+                identification: 4009976448
+                schemeName: CPAN
+                issuer: null
+            }
+        }
+        name: Customer A
+        details: null
+        linkedAccount: null
+        usage: PRIV
+        cashAccountType: CACC
+        product: null
+        currency: EUR
+        balances: null
+        psuStatus: null
+        links: class AccountLinks {
+            balances: null
+            transactions: null
+        }
+    }]
+    links: class PsuContextLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts
+            templated: false
+        }
+        beneficiaries: null
+        first: null
+        last: null
+        next: null
+        prev: null
+    }
+}
+
+class HalBalances {
+    balances: [class BalanceResource {
+        name: Current booked balance
+        balanceAmount: class AmountType {
+            currency: EUR
+            amount: 8026.00
+        }
+        balanceType: ITBD
+        lastChangeDateTime: null
+        referenceDate: 2019-05-30
+        lastCommittedTransaction: null
+    }, class BalanceResource {
+        name: Current available balance
+        balanceAmount: class AmountType {
+            currency: EUR
+            amount: 8026.00
+        }
+        balanceType: ITAV
+        lastChangeDateTime: null
+        referenceDate: 2019-05-30
+        lastCommittedTransaction: null
+    }]
+    links: class BalancesLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts/d1fad11a-4571-11e9-9d38-1f6962efee5d/balances
+            templated: false
+        }
+        parentList: null
+        transactions: null
+    }
+}
+
+class HalBalances {
+    balances: [class BalanceResource {
+        name: Current booked balance
+        balanceAmount: class AmountType {
+            currency: EUR
+            amount: 510.00
+        }
+        balanceType: ITBD
+        lastChangeDateTime: null
+        referenceDate: 2019-05-30
+        lastCommittedTransaction: null
+    }, class BalanceResource {
+        name: Current available balance
+        balanceAmount: class AmountType {
+            currency: EUR
+            amount: 510.00
+        }
+        balanceType: ITAV
+        lastChangeDateTime: null
+        referenceDate: 2019-05-30
+        lastCommittedTransaction: null
+    }]
+    links: class BalancesLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts/d1fdee72-4571-11e9-9d38-03ba485e880b/balances
+            templated: false
+        }
+        parentList: null
+        transactions: null
+    }
+}
+
+class HalBalances {
+    balances: [class BalanceResource {
+        name: Current booked balance
+        balanceAmount: class AmountType {
+            currency: EUR
+            amount: 63.60
+        }
+        balanceType: ITBD
+        lastChangeDateTime: null
+        referenceDate: 2019-05-30
+        lastCommittedTransaction: null
+    }, class BalanceResource {
+        name: Current available balance
+        balanceAmount: class AmountType {
+            currency: EUR
+            amount: 2936.40
+        }
+        balanceType: ITAV
+        lastChangeDateTime: null
+        referenceDate: 2019-05-30
+        lastCommittedTransaction: null
+    }]
+    links: class BalancesLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts/d1fe92b4-4571-11e9-9d38-537dc9438d1e/balances
+            templated: false
+        }
+        parentList: null
+        transactions: null
+    }
+}
+
+class Consent {
+    consentStatus: null
+    consentId: 79982f10-e817-4501-8836-1d05052a1b3c
+    links: null
+}
+
+class HalTransactions {
+    transactions: [class Transaction {
+        resourceId: 76f874a6-915b-4fd4-a55e-1db9c5dddaa7
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 611f3743-813a-453b-9644-4fa7bbf77cb5
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 09c3872e-751f-4ffa-84f1-986a84627326
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-27
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 96ab133e-67f4-4b71-a2e2-bb999b864a90
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-21
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: e89bed2e-00a8-4f97-ae67-da0b79cf78ca
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-20
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 1406b805-2d1c-4ac6-9918-dce02f606ad5
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-20
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 1ade3512-918e-43fe-a7d4-58951370c9ad
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-16
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: b470a99d-9572-473e-9d0a-1286738e94f4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 12cad642-116c-445d-9296-2d803d3048f4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: fcdd2446-0f16-4015-9470-94219309d37f
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: bce0976e-d9d9-4b03-b6bf-54e0650fc64e
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 247ec7d0-09c2-438f-afd7-f7c5cf3ef704
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-06
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 2e96f305-04cb-4fcf-98ac-984daeb2298c
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 640.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-04-30
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [S-Pankki]
+        }
+    }, class Transaction {
+        resourceId: 04bbeddf-2c93-4bb1-8bf0-20988d4c9d40
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 62af5bfb-415a-46bf-8f6a-8d5c06e7df06
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 0ebf8d1c-69af-44b7-b449-fd9ccfc9147f
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 34f7f0cd-e26f-4114-b3d9-38d545b81210
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-23
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 8afc7a77-3cc1-47a2-bab7-48b7529c7cae
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-23
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 39dde88a-169c-4fba-b627-25b6b6717460
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-22
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: ee25e763-1cf7-4dac-907f-8bbb085b15b9
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-17
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 5ae18179-a9b3-47d6-bbb3-a51dec407b25
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-15
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 6cd0f385-7e0c-40dc-923c-6245a4d2aee6
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-15
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 4320308e-0e88-4ae1-bda2-16cc54bb6eb3
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-10
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 35d1b5e4-6120-437d-9788-7113af081d1a
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-08
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 7c3d7df4-870d-4168-a6aa-04a283c93382
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-08
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 94302c76-04e7-4859-b6f1-2643f91e53fa
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-02
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 01627d39-ec31-4aed-9bab-be3955597cd4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-02
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: d6b0e67c-df9e-4fb2-8cef-05ab7c3526c6
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-01
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 987e3c1a-cdfe-49f9-8121-16345efb1a7b
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 640.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [S-Pankki]
+        }
+    }, class Transaction {
+        resourceId: 3e44a508-caec-4b78-a68a-6354b52b173e
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-26
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 37248e4b-2492-45e6-9eaf-78d1beb94e78
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 4e3e865f-3eaf-4e76-84a1-4203748bd2b7
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 058c5a15-e5aa-43c3-9729-00b8d50a7055
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-21
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 9df21854-5e14-4b63-9aee-8fabd9b35215
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-18
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: aad1027d-821b-41ed-85bd-773e761aa1f5
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-18
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 4310f73c-a867-4b7f-901a-dba1ac1f7ae9
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: df670b6b-69df-40e2-8e42-e905f5a3cf82
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-12
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 78d325d1-d786-4fca-bd57-4193923334fd
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: efa82bee-1fe4-4169-bb35-266bce905d9d
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 8576.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }, class Transaction {
+        resourceId: 900179ce-2c17-43b6-b781-5b811d02e763
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 10.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }, class Transaction {
+        resourceId: 61a1ea8e-b827-44b8-bea3-2e281f0dcc73
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 100.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }]
+    links: class TransactionsLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts/d1fad11a-4571-11e9-9d38-1f6962efee5d/transactions
+            templated: false
+        }
+        parentList: null
+        balances: null
+        first: null
+        last: null
+        next: null
+        prev: null
+    }
+}
+
+class HalTransactions {
+    transactions: [class Transaction {
+        resourceId: 3a6626b5-a14a-47d8-9690-dfa7ca5273e9
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-28
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 6ee8c4e7-c8c5-4492-86d4-0ee8805e1a0a
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-28
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 0477ef15-cfe9-4efc-96be-161848d7cdcf
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-28
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: d0386e71-0593-480c-bd68-74e79f8aeec8
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-21
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: c5505a12-7bef-4d76-b81c-6597de0eddca
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-21
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 9ed23aa3-9dcf-49fa-a743-51e4e8768c53
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-20
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 9d0e281f-aa86-4cec-b1ed-b8bfbf9b9566
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-14
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: b230607c-f5fc-4484-a5be-4cc245eac2c4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: e1af92ce-d07b-458f-90f6-471d3a93b9ca
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 3aae5244-ca5c-41b1-9841-904159c39608
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-06
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 48d6217d-c1b2-440d-83fd-28e95e3d814a
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-06
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 29fdb3c9-4bb4-44db-9660-c3b4c8199f69
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-06
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: bebe7688-f924-4191-8a67-afafd34e264c
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-04
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: de582279-b14d-4d3c-96b2-321f0f46d6e1
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 640.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-04-30
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [S-Pankki]
+        }
+    }, class Transaction {
+        resourceId: dfa81784-8bff-49bb-a1be-5c641571c3ac
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 2b282b60-fbb9-4748-a0fe-eeb982263234
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 0850684c-a53e-4748-9256-9b54041835ae
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-27
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: ada0feb4-02ab-4c7d-bc02-2ea7dbf0a6a6
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-24
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 067e5e9a-3482-4a96-934f-933a4340a62d
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-23
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: de546691-f811-4546-ac16-ffe99c7c773c
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-18
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 530d9bf9-8805-40cd-9c62-bea7ebf21bd6
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-18
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 015d7954-d7e9-449f-9037-a033013b613d
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-16
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 644ce4d0-5d38-42a8-b0df-0a7b0dfccb8b
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-14
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 56cb43ba-c0bc-43e2-ac7d-5210299aff67
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-10
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: d8e34fe3-808e-4cea-818f-5e2bcb5e4858
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-08
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: cd8dda41-2a9b-4fbb-8864-09834f6be9fa
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-01
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 19e0ca46-605a-419f-b697-51c2fb857d23
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-01
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: f12cdc59-4576-4676-af50-583920d46e50
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-01
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: ade30882-2bb7-4135-926d-a4376ed0d319
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 640.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [S-Pankki]
+        }
+    }, class Transaction {
+        resourceId: 4cddd5f8-e593-43ce-ab0d-5817f297c58b
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-26
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: c252a81d-b5dc-4607-8a08-d9ef680b48f5
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 5baa5473-626e-42cd-a281-5a2b8011e4f8
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 81b4a0c8-b206-4852-83e2-498d762ddb6b
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-20
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 84a57c54-a980-4f05-bce2-1155e29fc350
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-20
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 433f1fbd-c2bf-4cc6-a71b-a65d86525273
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-18
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 2387e051-9a49-4e42-ae2a-5d02fe30377a
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 35c4b004-8372-4635-ba79-9dba1c67a4d4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-12
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: dd448d06-9d52-4dd6-b02a-1eefa21c4ed0
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 3f9e89c5-5412-4672-be5f-227ebcc063a4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 20.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }, class Transaction {
+        resourceId: e5444287-fa6f-43be-bb4f-b675fec9abff
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 150.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }]
+    links: class TransactionsLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts/d1fdee72-4571-11e9-9d38-03ba485e880b/transactions
+            templated: false
+        }
+        parentList: null
+        balances: null
+        first: null
+        last: null
+        next: null
+        prev: null
+    }
+}
+
+class HalTransactions {
+    transactions: [class Transaction {
+        resourceId: 0bb58cd7-19b8-4d78-b28a-c4e0f5ab2a1f
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-28
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: dbbbe78f-eb4f-4e7e-a2ac-49bf2c5defae
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-28
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: e4517be5-df02-4dd1-b904-f065be6e8845
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-27
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: beda56a6-1447-41b1-ba05-64e67399bcec
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-22
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 1c82cbe2-76eb-47f3-8e91-248a603aab60
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-21
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 554cfdc9-1418-47ce-9df1-c84ad8c0429a
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-20
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 8feeacff-af49-4b15-bf61-a3156ed7f252
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 14132bdd-1486-4b46-a570-aeedc73eadde
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 1c5c019c-0356-4dbe-991d-b3d8d36d8008
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-13
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: b65d5ce7-de5f-4ff4-a079-f3e8e43f5802
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 78280593-7f1e-4ed0-ad73-f5014736b798
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-08
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 6aa7cbe7-1285-4cc9-8afb-37ce7b7b3a97
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-06
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: a8bd4da3-8412-43a9-8a4b-fefbf288ee5d
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-05-03
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 69f4f3b1-16dc-4cae-b5ff-7afca9919e22
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-30
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: f65eee81-6231-48aa-953a-1583104b268f
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-30
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: d8f4990e-3632-4ce7-8518-003652582a15
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 661.75
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-04-30
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            []
+        }
+    }, class Transaction {
+        resourceId: d5119995-65af-49e3-9c88-13f94ac34ce3
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: f2682400-3cab-4c3c-9bbd-c034ccb3d17f
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-24
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: df53c77e-ef91-4822-b74c-c49b4e0bfbab
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-22
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 46570080-72ae-456b-a648-0b5cbf202a7b
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-15
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 4c287dd9-f413-48dd-a7ad-b2e2df8a96fa
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-15
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: b4c50d54-02b1-4cef-bb3c-95dc4b86dfd4
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-15
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 220c03b5-a79d-413f-b0ba-e7e9cdc910d7
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 937216d7-8b6e-4fd2-87b3-b1e1af464f7c
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-08
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: f0d95165-93f7-4033-b70a-6d161f97b3a8
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-08
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 7f434756-47c8-4d10-91df-930c07ef05f2
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-05
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 4722f985-d74d-480c-b9ce-1cef304feddf
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-02
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: 8513e58d-5708-4bf0-8772-a01b83fdfb2c
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-04-01
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 9c46bbbb-7a0b-4d15-85fa-c73c9320be4d
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 24f8a588-410d-4ee9-9657-436fb0ae8a82
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 667.85
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-29
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            []
+        }
+    }, class Transaction {
+        resourceId: c7a65f9b-9167-410d-979a-2975c5eb8df5
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: b511f0f8-b432-4fa7-a657-582b47e4a699
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-25
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: e8b192fb-11b2-46aa-9a88-e1358c2f1d2e
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-19
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 6a2b40da-5c86-43bd-8a72-67bd39e4c290
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-19
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: c9701640-2382-4035-82cd-16b398307d45
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-18
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: 67a0a009-d60c-4f1b-a5fa-fd80752d440f
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 40.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-12
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Amarillo]
+        }
+    }, class Transaction {
+        resourceId: ba40d6a6-4e8c-46eb-9891-1c37c9dbeb83
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 50.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-12
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Prisma]
+        }
+    }, class Transaction {
+        resourceId: 17349ee3-7430-4470-804c-e8bce3e1ebca
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 70.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-11
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [ABC]
+        }
+    }, class Transaction {
+        resourceId: ce04381e-6e52-469a-a4d6-f605435f94b7
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 110.00
+        }
+        creditDebitIndicator: DBIT
+        status: BOOK
+        bookingDate: 2019-03-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }, class Transaction {
+        resourceId: 45d37482-bc09-468f-9095-a536d150bbb7
+        entryReference: null
+        transactionAmount: class AmountType {
+            currency: EUR
+            amount: 764.00
+        }
+        creditDebitIndicator: CRDT
+        status: BOOK
+        bookingDate: 2019-03-07
+        valueDate: null
+        transactionDate: null
+        remittanceInformation: class UnstructuredRemittanceInformation {
+            [Test Debtor]
+        }
+    }]
+    links: class TransactionsLinks {
+        self: class GenericLink {
+            href: /open-banking/v3.1/aisp/accounts/d1fe92b4-4571-11e9-9d38-537dc9438d1e/transactions
+            templated: false
+        }
+        parentList: null
+        balances: null
+        first: null
+        last: null
+        next: null
+        prev: null
+    }
+}
