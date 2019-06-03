@@ -78,9 +78,9 @@ public class Application {
     }
 
     private static String blockReadRedirectedUrl(String authUrl, String redirectUri) {
-        print("Please, open this page in browser: " + authUrl);
-        print("Login, authenticate and copy paste back the URL where you got redirected.");
-        print("URL: (starts with " + redirectUri + "): ");
+        println("Please, open this page in browser: " + authUrl);
+        println("Login, authenticate and copy paste back the URL where you got redirected.");
+        println("URL: (starts with " + redirectUri + "): ");
 
 
         Scanner scan = new Scanner(System.in);
@@ -92,13 +92,8 @@ public class Application {
         return redirectedUrl;
     }
 
-    private static void print(Object obj) {
-        System.out.println(obj);
-    }
-
     private static void println(Object obj) {
-        print(obj);
-        System.out.println();
+        System.out.println(obj);
     }
 
 
@@ -120,7 +115,7 @@ public class Application {
                 result.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"),
                         URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                log.error("", e);
             }
         }
         return result;
