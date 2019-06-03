@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com</groupId>
-    <artifactId>spankki-demo</artifactId>
+    <artifactId>eb-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
