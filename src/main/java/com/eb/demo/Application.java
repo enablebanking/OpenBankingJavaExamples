@@ -11,6 +11,8 @@ import com.enablebanking.model.HalAccounts;
 import com.enablebanking.model.HalBalances;
 import com.enablebanking.model.HalTransactions;
 import com.enablebanking.model.Token;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -21,6 +23,7 @@ import java.util.Scanner;
 import static java.util.Arrays.asList;
 
 public class Application {
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
         BankSettings settings = new SPankkiSettings();
@@ -34,7 +37,7 @@ public class Application {
                 null, //clientId
                 "test" //state
         );
-        println(auth);
+        log.info("{}", auth);
 
         String redirectedUrl = blockReadRedirectedUrl(auth.getUrl(), settings.redirectUri());
         Map<String, String> parsedQueryParams = parseQueryParams(redirectedUrl, settings.redirectUri());
@@ -44,21 +47,21 @@ public class Application {
                 parsedQueryParams.get("code"), //code
                 parsedQueryParams.get("id_token"), //idToken
                 settings.redirectUri());
-        println(token);
+        log.info("{}", token);
 
 
         AispApi aispApi = new AispApi(apiClient);
         //apiClient has already accessToken and refreshToken applied after call to makeToken()
         HalAccounts accounts = aispApi.getAccounts();
-        println(accounts);
+        log.info("{}", accounts);
 
         for (AccountResource account : accounts.getAccounts()) {
             HalBalances accountBalances = aispApi.getAccountBalances(account.getResourceId());
-            println(accountBalances);
+            log.info("{}", accountBalances);
         }
 
         Consent currentConsent = aispApi.getCurrentConsent();
-        println(currentConsent);
+        log.info("{}", currentConsent);
 
         for (AccountResource account : accounts.getAccounts()) {
             HalTransactions transactions = aispApi.getAccountTransactions(account.getResourceId(),
@@ -67,9 +70,9 @@ public class Application {
                     null //afterEntryReference
             );
 
-            print("Account " + account.getResourceId() + " has " + transactions.getTransactions().size() + " transactions");
+            log.info("Account '{}' has {} transactions", account.getResourceId(), transactions.getTransactions().size());
             if (transactions.getTransactions().size() > 0) {
-                println("First: " + transactions.getTransactions().get(0));
+                log.info("First: {}", transactions.getTransactions().get(0));
             }
         }
     }
