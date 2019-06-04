@@ -32,4 +32,9 @@ public class SPankkiSettings implements BankSettings {
         return "https://enablebanking.com";
     }
 
+    @Override
+    public boolean makeToken() {
+        return true;
+    }
+
 }

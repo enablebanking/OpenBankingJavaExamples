@@ -10,4 +10,6 @@ public interface BankSettings {
 
     String redirectUri();
 
+    boolean makeToken();
+
 }
