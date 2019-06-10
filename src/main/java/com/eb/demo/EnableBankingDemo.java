@@ -1,7 +1,6 @@
 package com.eb.demo;
 
-import com.eb.demo.banks.LHVSettings;
-import com.eb.demo.banks.SPankkiSettings;
+import com.eb.demo.banks.SPankkiSettings; // !!! IMPORT ANOTHER SETTINGS IF NEEDED
 import com.enablebanking.ApiClient;
 import com.enablebanking.ApiException;
 import com.enablebanking.api.AispApi;
@@ -26,41 +25,33 @@ import static java.util.Arrays.asList;
 public class EnableBankingDemo {
     private static final Logger log = LoggerFactory.getLogger(EnableBankingDemo.class);
 
-    private static final Map<String, BankSettings> bankSettings = new HashMap<>();
-
-    static {
-        bankSettings.put("LHV", new LHVSettings());
-        bankSettings.put("SPankki", new SPankkiSettings());
-    }
-
     public static void main(String[] args) {
-        BankSettings settings = bankSettings.get("LHV"); //one might choose another bank here
+        BankSettings settings = new SPankkiSettings(); //one might choose another bank here
 
-        ApiClient apiClient = new ApiClient(settings.bankName(), settings.clientSettings());
+        ApiClient apiClient = new ApiClient(
+                "SPankki", // !!! REPLACE WITH ANOTHER CONNECTOR NAME IF NEEDED
+                settings.clientSettings());
         AuthApi authApi = new AuthApi(apiClient);
-
+        String authRedirectUri = "https://enablebanking.com"; // !!! PUT YOUR REDIRECT URI HERE
         Auth auth = authApi.getAuth(
                 "code", //responseType
-                settings.redirectUri(),
+                authRedirectUri, //redirectUri
                 asList("aisp"), //scopes
-                null, //clientId
+                null, //clientId (using clinetId from ApiClient parameters)
                 "test" //state
         );
-        log.info("{}", auth);
 
-        //for some banks there is already static token for sandbox
-        if (settings.makeToken()) {
-            String redirectedUrl = blockReadRedirectedUrl(auth.getUrl(), settings.redirectUri());
-            Map<String, String> parsedQueryParams = parseQueryParams(redirectedUrl, settings.redirectUri());
+        // calling helper functions for CLI interaction
+        String redirectedUrl = blockReadRedirectedUrl(auth.getUrl(), authRedirectUri);
+        Map<String, String> parsedQueryParams = parseQueryParams(
+                redirectedUrl, authRedirectUri);
 
-            Token token = authApi.makeToken(
-                    "authorization_code", //grantType
-                    parsedQueryParams.get("code"), //code
-                    parsedQueryParams.get("id_token"), //idToken
-                    settings.redirectUri());
-            log.info("{}", token);
-        }
-
+        Token token = authApi.makeToken(
+                "authorization_code", //grantType
+                parsedQueryParams.get("code"), //code
+                parsedQueryParams.get("id_token"), //idToken
+                authRedirectUri);
+        log.info("{}", token);
 
         AispApi aispApi = new AispApi(apiClient);
         //apiClient has already accessToken and refreshToken applied after call to makeToken()

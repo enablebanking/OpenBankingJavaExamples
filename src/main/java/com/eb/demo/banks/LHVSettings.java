@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LHVSettings implements BankSettings {
-
     @Override
     public List<Object> clientSettings() {
         return Arrays.asList(
@@ -21,20 +20,4 @@ public class LHVSettings implements BankSettings {
                 "https://enablebanking.com" //tppRedirectUri
         );
     }
-
-    @Override
-    public String bankName() {
-        return "LHV";
-    }
-
-    @Override
-    public String redirectUri() {
-        return "https://enablebanking.com";
-    }
-
-    @Override
-    public boolean makeToken() {
-        return false;
-    }
-
 }

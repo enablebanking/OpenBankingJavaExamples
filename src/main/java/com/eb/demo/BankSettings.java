@@ -6,10 +6,4 @@ public interface BankSettings {
 
     List<Object> clientSettings();
 
-    String bankName();
-
-    String redirectUri();
-
-    boolean makeToken();
-
 }

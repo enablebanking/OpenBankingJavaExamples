@@ -19,7 +19,7 @@ To run examples from your command line:
 2. Run compiled class
 
    ```
-   mvn exec:java -Dexec.mainClass="com.eb.demo.Application"
+   mvn exec:java -Dexec.mainClass="com.eb.demo.EnableBankingDemo"
    ```
 
 ## Settings
