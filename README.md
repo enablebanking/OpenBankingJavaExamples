@@ -26,10 +26,19 @@ To run examples from your command line:
 
 Sample application contains several files with settings for connecting to different banks.
 
-By default `SPankkiSettings` class is imported and `ApiClient` is initialized with `"SPankki"` in the connector name parameter. If you wish to connect to another bank import another settings class and change connector name in ApiClient constructor call.
+By default `SPankkiSettings` class is imported and `ApiClient` is initialized with `"SPankki"` in the connector name parameter. If you wish to connect to another bank import another settings class (or define your own) and change connector name in `ApiClient` constructor call.
 
-### SPankki
+The classes containing connection settings for different banks are located inside [src/main/java/com/eb/demo/banks](src/main/java/com/eb/demo/banks) folder. By default certificates and possibly other assets required for connecting to banks are located in [src/main/resources](src/main/resources) folder; you should put your own files there.
 
-The settings are located inside [src/main/java/com/eb/demo/banks/SPankkiSettings.java](src/main/java/com/eb/demo/banks/SPankkiSettings.java) file. You need to put your own client id and X-API-Key values there. By default certificates are located in [src/main/resources/SPankki](src/main/resources/SPankki) folder; you should overwrite files there with your own.
+This repository includes settings templates for the following banks:
 
-If you wish to sign up for S-Pankki sandbox account go to [https://www.s-pankki.fi/fi/yhtiot/open-banking/](https://www.s-pankki.fi/fi/yhtiot/open-banking/).
+- S-Pankki, Finland
+  - Connector name: **SPankki**
+  - Settings: [src/main/java/com/eb/demo/banks/SPankkiSettings.java](src/main/java/com/eb/demo/banks/SPankkiSettings.java)
+  - Assets: [src/main/resources/SPankki](src/main/resources/SPankki)
+  - Open banking homepage: [https://www.s-pankki.fi/fi/yhtiot/open-banking/](https://www.s-pankki.fi/fi/yhtiot/open-banking/)
+- LHV Pank, Estonia
+  - Connector name: **LHV**
+  - Settings: [src/main/java/com/eb/demo/banks/LHVSettings.java](src/main/java/com/eb/demo/banks/LHVSettings.java)
+  - Assets: [src/main/resources/LHV](src/main/resources/LHV)
+  - Open banking homepage: [https://www.lhv.ee/en/open-banking](https://www.lhv.ee/en/open-banking)
