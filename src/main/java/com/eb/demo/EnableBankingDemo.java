@@ -37,8 +37,8 @@ public class EnableBankingDemo {
                 "code", //responseType
                 authRedirectUri, //redirectUri
                 asList("aisp"), //scopes
-                null, //clientId (using clinetId from ApiClient parameters)
-                "test" //state
+                "test", //state
+                null //no access parameter (requesting consent for default AISP scope)
         );
 
         // calling helper functions for CLI interaction
@@ -49,7 +49,6 @@ public class EnableBankingDemo {
         Token token = authApi.makeToken(
                 "authorization_code", //grantType
                 parsedQueryParams.get("code"), //code
-                parsedQueryParams.get("id_token"), //idToken
                 authRedirectUri);
         log.info("{}", token);
 
