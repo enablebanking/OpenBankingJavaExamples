@@ -4,7 +4,7 @@ This repository contains sample Java code showing how to use Open banking APIs (
 
 ## Quickstart
 
-In order to compile and run the example code you need to have Java compiler and Maven toolset installed, as well as enablebanking.jar available in CLASSPATH.
+In order to compile and run the example code you need to have Java compiler and Maven toolset installed, as well as enablebanking.jar available in CLASSPATH or inside local Maven repository. You may also need to modify [pom.xml](pom.xml) in order to set correct artifactId and version for com.enablebanking dependency.
 
 It is also necessary to insert actual API credentials into Java files where they are supposed to be. Please check [settings](#settings) section for more information.
 

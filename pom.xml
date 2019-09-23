@@ -11,8 +11,8 @@
     <dependencies>
         <dependency>
             <groupId>com.enablebanking</groupId>
-            <artifactId>api</artifactId>
-            <version>1.0.0</version>
+            <artifactId>enablebanking</artifactId>
+            <version>0.1.1</version>
         </dependency>
 
         <dependency>

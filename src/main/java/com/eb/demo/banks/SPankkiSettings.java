@@ -15,6 +15,9 @@ public class SPankkiSettings implements BankSettings {
                 "SPankki/req_cert.crt", //certPath
                 "SPankki/req_key.pem", //keyPath
                 "SPankki/sign_private.pem", //signPrivateKey
+                "!!! QSEAL CERTIFICATE SERIAL HERE !!!", //signPubKeySerial
+                "https://your.domain/path/to/handler", //paymentAuthRedirectUri
+                "some-state-string", //paymentAuthState
                 null, //accessToken
                 null, //refreshToken
                 null //consentId
