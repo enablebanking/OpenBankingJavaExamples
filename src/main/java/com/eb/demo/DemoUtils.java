@@ -3,7 +3,9 @@ package com.eb.demo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,19 +18,18 @@ public class DemoUtils {
         System.out.println(obj);
     }
 
-
-    static Map<String, String> parseQueryParams(String url, String redirectUri) {
+    static Map<String, String> parseQueryParams(String url) {
         Map<String, String> result = new HashMap<String, String>();
 
-        url = url.replace(redirectUri, "");
-        if (url.startsWith("/")) {
-            url = url.substring(1);
-        }
-        if (url.startsWith("#")) {
-            url = url.substring(1);
+        String queryParams = null;
+
+        try {
+            queryParams = new URL(url).getQuery();
+        } catch (IOException e) {
+            log.error("", e);
         }
 
-        String[] pairs = url.split("&");
+        String[] pairs = queryParams.split("&");
         for (String pair : pairs) {
             int idx = pair.indexOf("=");
             try {
@@ -55,6 +56,4 @@ public class DemoUtils {
 
         return redirectedUrl;
     }
-
-
 }
