@@ -80,8 +80,7 @@ public class PispExample {
         Map<String, String> parsedQueryParams = parseQueryParams(redirectedUrl);
         HalPaymentRequest pr = pispApi.makePaymentRequestConfirmation(
                 c.getPaymentRequestResourceId(),
-                new PaymentRequestConfirmation().psuAuthenticationFactor(parsedQueryParams.get("code")),
-                parsedQueryParams);
+                new PaymentRequestConfirmation().psuAuthenticationFactor(parsedQueryParams.get("code")).paymentRequest(prr));
 
         log.info("Payment request: {}", pr);
     }
