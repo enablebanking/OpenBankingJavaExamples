@@ -28,6 +28,7 @@ public class PispExample {
                 .signPubKeySerial("sign-pub-key-serial")  // Public serial key of the QSeal certificate located in signKeyPath
                 .signFingerprint("sign-fingerprint")
                 .signCertUrl("sign-cert-url")
+                .redirectUri(paymentAuthRedirectUri)
                 .paymentAuthRedirectUri(paymentAuthRedirectUri)  // URI where clients are redirected to after payment authorization.
                 .paymentAuthState("test")  // This value returned to paymentAuthRedirectUri after payment authorization.
                 .sandbox(true);

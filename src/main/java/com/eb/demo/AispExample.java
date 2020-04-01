@@ -26,11 +26,13 @@ public class AispExample {
     private static final Logger log = LoggerFactory.getLogger(AispExample.class);
 
     public static void main(String[] args) {
+        String authRedirectUri = "https://enablebanking.com"; // !!! PUT YOUR REDIRECT URI HERE
 
         // Initialize settings.
         ConnectorSettings settings = new NordeaConnectorSettings() // one might choose another bank here
                 .clientId("client-id")  // API client ID
                 .clientSecret("client-secret")
+                .redirectUri(authRedirectUri)
                 .certPath("cert-path")  // Path or URI to QWAC certificate in PEM format
                 .keyPath("key-path")  // Path or URI to QWAC certificate private key in PEM format
                 .country("FI")
@@ -43,11 +45,7 @@ public class AispExample {
         // Create authentication interface.
         AuthApi authApi = new AuthApi(apiClient);
 
-        String authRedirectUri = "https://enablebanking.com"; // !!! PUT YOUR REDIRECT URI HERE
         String authUrl = authApi.getAuth(
-                "code", // OAuth2 response type
-                authRedirectUri, // redirect URI
-                Arrays.asList("aisp"), // API scopes
                 "test", // state to pass to redirect URL
                 null // no access parameter (requesting consent for default AISP scope)
         ).getUrl();
@@ -59,7 +57,7 @@ public class AispExample {
         Token token = authApi.makeToken(
                 "authorization_code", // grant type, MUST be set to "authorization_code"
                 parsedQueryParams.get("code"), // The code received in the query string when redirected from authorization
-                authRedirectUri);
+                );
         log.info("Token: {}", token);
 
         AispApi aispApi = new AispApi(apiClient);
