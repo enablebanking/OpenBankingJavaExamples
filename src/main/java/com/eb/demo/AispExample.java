@@ -8,6 +8,7 @@ import com.enablebanking.api.AuthApi;
 import com.enablebanking.model.AccountResource;
 import com.enablebanking.model.ConnectorSettings;
 import com.enablebanking.model.HalAccounts;
+import com.enablebanking.model.AuthRedirect;
 import com.enablebanking.model.HalBalances;
 import com.enablebanking.model.HalTransactions;
 import com.enablebanking.model.Token;
@@ -20,25 +21,28 @@ import java.util.Arrays;
 import java.util.Map;
 
 import static com.eb.demo.DemoUtils.blockReadRedirectedUrl;
-import static com.eb.demo.DemoUtils.parseQueryParams;
 
 public class AispExample {
     private static final Logger log = LoggerFactory.getLogger(AispExample.class);
+    private static String getAuthRedirectUri() {
+        return "https://enablebanking.com"; // !!! PUT YOUR REDIRECT URI HERE
+    }
 
-    public static void main(String[] args) {
-        String authRedirectUri = "https://enablebanking.com"; // !!! PUT YOUR REDIRECT URI HERE
-
+    private static ConnectorSettings getConnectorSettings() {
         // Initialize settings.
         ConnectorSettings settings = new NordeaConnectorSettings() // one might choose another bank here
                 .clientId("client-id")  // API client ID
-                .clientSecret("client-secret")
-                .redirectUri(authRedirectUri)
-                .certPath("cert-path")  // Path or URI to QWAC certificate in PEM format
-                .keyPath("key-path")  // Path or URI to QWAC certificate private key in PEM format
+                .clientSecret("client-secret") // API client secret
+                .redirectUri(getAuthRedirectUri())
+                .signKeyPath("sign-key-path")  // Path or URI to QSEAL certificate in PEM format
                 .country("FI")
                 .language("fi")
                 .sandbox(true);
+        return settings;
+    }
 
+    public static void main(String[] args) {
+        ConnectorSettings settings = getConnectorSettings();
         // Create client instance.
         ApiClient apiClient = new ApiClient(settings);
 
@@ -47,16 +51,19 @@ public class AispExample {
 
         String authUrl = authApi.getAuth(
                 "test", // state to pass to redirect URL
-                null // no access parameter (requesting consent for default AISP scope)
+                null, // userId (required for connectors in some countries e.g. Sweden)
+                null, // password (required for some connectors with userId)
+                null // no access parameter (requesting consent for default AISP scope),
         ).getUrl();
 
-        // calling helper functions for CLI interaction
-        String redirectedUrl = blockReadRedirectedUrl(authUrl, authRedirectUri);
-        Map<String, String> parsedQueryParams = parseQueryParams(redirectedUrl);
+        // calling helper function for CLI interaction
+        String redirectedUrl = blockReadRedirectedUrl(authUrl, getAuthRedirectUri());
+        AuthRedirect parsedQueryParams = authApi.parseRedirectUrl(redirectedUrl);
 
         Token token = authApi.makeToken(
                 "authorization_code", // grant type, MUST be set to "authorization_code"
-                parsedQueryParams.get("code"), // The code received in the query string when redirected from authorization
+                parsedQueryParams.getCode(), // The code received in the query string when redirected from authorization
+                null
                 );
         log.info("Token: {}", token);
 
