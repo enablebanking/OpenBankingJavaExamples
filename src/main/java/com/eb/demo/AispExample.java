@@ -2,10 +2,11 @@ package com.eb.demo;
 
 import com.enablebanking.ApiClient;
 import com.enablebanking.exception.DataRetrievalException;
-import com.enablebanking.exception.InsufficientScopeException;
 import com.enablebanking.api.AispApi;
 import com.enablebanking.api.AuthApi;
+import com.enablebanking.model.Access;
 import com.enablebanking.model.AccountResource;
+import com.enablebanking.model.ClientInfo;
 import com.enablebanking.model.ConnectorSettings;
 import com.enablebanking.model.HalAccounts;
 import com.enablebanking.model.AuthRedirect;
@@ -16,9 +17,8 @@ import com.enablebanking.model.NordeaConnectorSettings;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.time.OffsetDateTime;
 
-import java.util.Arrays;
-import java.util.Map;
 
 import static com.eb.demo.DemoUtils.blockReadRedirectedUrl;
 
@@ -34,7 +34,7 @@ public class AispExample {
                 .clientId("client-id")  // API client ID
                 .clientSecret("client-secret") // API client secret
                 .redirectUri(getAuthRedirectUri())
-                .signKeyPath("sign-key-path")  // Path or URI to QSEAL certificate in PEM format
+                .signKeyPath("sign/key/path")  // Path or URI to QSEAL certificate in PEM format
                 .country("FI")
                 .language("fi")
                 .sandbox(true);
@@ -48,12 +48,23 @@ public class AispExample {
 
         // Create authentication interface.
         AuthApi authApi = new AuthApi(apiClient);
+        ClientInfo clientInfo = new ClientInfo();
+        clientInfo.psuIpAddress("10.10.10.10")
+                .psuIpPort("80")
+                .psuUserAgent("Mozilla")
+                .psuHttpMethod("GET"); // more parameters might be needed for some banks, so it's recommended to fill in all.
+        authApi.setClientInfo(clientInfo);
 
+        OffsetDateTime validUntil = OffsetDateTime.now().plusDays(1);
+        Access access = new Access()
+                .frequencyPerDay(4)
+                .recurringIndicator(false)
+                .validUntil(validUntil);
         String authUrl = authApi.getAuth(
                 "test", // state to pass to redirect URL
                 null, // userId (required for connectors in some countries e.g. Sweden)
                 null, // password (required for some connectors with userId)
-                null // no access parameter (requesting consent for default AISP scope),
+                access //  access parameter (if access = null -> requesting consent for default AISP scope),
         ).getUrl();
 
         // calling helper function for CLI interaction
