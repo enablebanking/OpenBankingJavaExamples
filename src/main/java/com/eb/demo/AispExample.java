@@ -69,11 +69,11 @@ public class AispExample {
 
         // calling helper function for CLI interaction
         String redirectedUrl = blockReadRedirectedUrl(authUrl, getAuthRedirectUri());
-        //AuthRedirect parsedQueryParams = authApi.parseRedirectUrl(redirectedUrl);
+        AuthRedirect parsedQueryParams = authApi.parseRedirectUrl(redirectedUrl);
 
         Token token = authApi.makeToken(
                 "authorization_code", // grant type, MUST be set to "authorization_code"
-                redirectedUrl, // The code received in the query string when redirected from authorization
+                parsedQueryParams.getCode(), // The code received in the query string when redirected from authorization
                 null
                 );
         log.info("Token: {}", token);
