@@ -62,18 +62,18 @@ public class AispExample {
                 .validUntil(validUntil);
         String authUrl = authApi.getAuth(
                 "test", // state to pass to redirect URL
-                null, // userId (required for connectors in some countries e.g. Sweden)
-                null, // password (required for some connectors with userId)
+                null, // credentials (required for connectors in some countries e.g. Sweden)
+                null, // authentication method (required for some connectors which have multiple authentication methods available)
                 access //  access parameter (if access = null -> requesting consent for default AISP scope),
         ).getUrl();
 
         // calling helper function for CLI interaction
         String redirectedUrl = blockReadRedirectedUrl(authUrl, getAuthRedirectUri());
-        AuthRedirect parsedQueryParams = authApi.parseRedirectUrl(redirectedUrl);
+        //AuthRedirect parsedQueryParams = authApi.parseRedirectUrl(redirectedUrl);
 
         Token token = authApi.makeToken(
                 "authorization_code", // grant type, MUST be set to "authorization_code"
-                parsedQueryParams.getCode(), // The code received in the query string when redirected from authorization
+                redirectedUrl, // The code received in the query string when redirected from authorization
                 null
                 );
         log.info("Token: {}", token);

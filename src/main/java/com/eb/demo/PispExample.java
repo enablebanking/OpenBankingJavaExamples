@@ -22,15 +22,13 @@ public class PispExample {
     private static ConnectorSettings getConnectorSettings() {
         // Initialize settings.
         ConnectorSettings settings = new SPankkiConnectorSettings() // one might choose another bank here
-                .redirectUri(getAuthRedirectUri())
+                .redirectUri(getAuthRedirectUri()) // URI where clients are redirected to after payment authorization.
                 .clientId("clientId")  // API client ID
                 .xApiKey("xApiKey") // API key
                 .certPath("path/to/cert")  // Path or URI QWAC certificate in PEM format
                 .keyPath("path/to/key")  // Path or URI to QWAC certificate private key in PEM format
                 .signKeyPath("path/to/sign/cert/")  // Path or URI to QSeal certificate in PEM format
                 .signPubKeySerial("sign-pub-key-serial")  // Public serial key of the QSeal certificate located in signKeyPath
-                .paymentAuthRedirectUri(getAuthRedirectUri())  // URI where clients are redirected to after payment authorization.
-                .paymentAuthState("test")  // This value returned to paymentAuthRedirectUri after payment authorization.
                 .sandbox(true);
         return settings;
     }
@@ -62,7 +60,8 @@ public class PispExample {
                         .instructionPriority(PriorityCode.NORM)
                         .categoryPurpose(CategoryPurposeCode.CASH)
                         .serviceLevel(ServiceLevelCode.SEPA)); // will be resolved to "pis:EEA"
-        HalPaymentRequestCreation c = pispApi.makePaymentRequest(prr);
+        HalPaymentRequestCreation c = pispApi.makePaymentRequest(prr,
+                                                                "test"); // This value returned to redirectUri after payment authorization.
 
         // calling helper functions for CLI interaction
         String redirectedUrl = blockReadRedirectedUrl(c.getLinks().getConsentApproval().getHref(), getAuthRedirectUri());
