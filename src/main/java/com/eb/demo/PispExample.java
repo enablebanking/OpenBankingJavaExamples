@@ -61,7 +61,7 @@ public class PispExample {
                         .categoryPurpose(CategoryPurposeCode.CASH)
                         .serviceLevel(ServiceLevelCode.SEPA)); // will be resolved to "pis:EEA"
         HalPaymentRequestCreation c = pispApi.makePaymentRequest(prr,
-                                                                "test"); // This value returned to redirectUri after payment authorization.
+                                                                "test", null, null); // This value returned to redirectUri after payment authorization.
 
         // calling helper functions for CLI interaction
         String redirectedUrl = blockReadRedirectedUrl(c.getLinks().getConsentApproval().getHref(), getAuthRedirectUri());
@@ -69,7 +69,7 @@ public class PispExample {
         AuthRedirect parsedQueryParams = authApi.parseRedirectUrl(redirectedUrl);
         HalPaymentRequest pr = pispApi.makePaymentRequestConfirmation(
                 c.getPaymentRequestResourceId(),
-                new PaymentRequestConfirmation().psuAuthenticationFactor(parsedQueryParams.getCode()).paymentRequest(prr));
+                new PaymentRequestConfirmation().psuAuthenticationFactor(parsedQueryParams.getCode()));
 
         log.info("Payment request: {}", pr);
     }
